@@ -58,8 +58,88 @@ class MisoFirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Miso 첫 번째 페이지"),
+      backgroundColor: misoPrimaryColor,
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                  ),
+                  Text(
+                    "대한민국 1등 홈서비스\n미소를 만나보세요!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      print("예약 버튼 클릭");
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 24,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(64),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.add,
+                            color: misoPrimaryColor,
+                          ),
+                          Text(
+                            '예약하기',
+                            style: TextStyle(
+                                color: misoPrimaryColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              /*ElevatedButton(
+                onPressed: () {
+                  print("Elevated Button 클릭");
+                },
+                child: Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.all(24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: misoPrimaryColor,
+                      ),
+                      Text(
+                        '예약하기',
+                        style: TextStyle(color: misoPrimaryColor),
+                      ),
+                    ],
+                  ),
+                ),
+              ),*/
+            ],
+          ),
+        ),
       ),
     );
   }

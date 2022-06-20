@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_practice/miso.dart';
-import 'package:ui_practice/starbucks.dart';
+import 'package:ms_st/miso.dart';
+import 'package:ms_st/starbucks.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +29,10 @@ class AppListPage extends StatelessWidget {
           children: [
             /// Miso
             ListTile(
-              title: Text("1. Miso", style: TextStyle(fontSize: 24)),
+              title: Text(
+                "1. Miso",
+                style: TextStyle(fontSize: 24, color: Colors.yellow),
+              ),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => Miso()),
