@@ -113,6 +113,15 @@ class MisoFirstPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 210,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      print("click service informations");
+                    },
+                    child: Text("service informations"),
+                  ),
                 ],
               ),
               /*ElevatedButton(
