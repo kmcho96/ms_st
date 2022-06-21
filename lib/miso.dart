@@ -284,29 +284,112 @@ class MisoThirdPage extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: Stack(
+            alignment: Alignment.center,
             children: [
-              /*Positioned(
+              Positioned(
                 bottom: 0,
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 410),
+                  constraints: BoxConstraints(maxWidth: 400),
                   child: Image.network(backgroundImgUrl),
                 ),
-              ),*/
-              Image.network(
-                backgroundImgUrl,
-                //height: 800,
-                //
-                //width: double.infinity,
-                fit: BoxFit.cover,
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  Text("")
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 23,
+                        height: 1.5,
+                        color: Colors.white,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "친구를 추천할 때마다\n",
+                        ),
+                        TextSpan(
+                          text: "10,000원 ",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(text: "할인 쿠폰 지급!"),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      print("자세히보기 클릭");
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "자세히보기",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Icon(
+                          Icons.chevron_right,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
+              ),
+              Positioned(
+                bottom: 20,
+                child: GestureDetector(
+                  onTap: () {
+                    print("친구 추천하기 클릭");
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 16,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(34),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          // 광원의 위치를 중심(0, 0)보다 위쪽(0, 5133)
+                          offset: Offset(0, 5),
+                          spreadRadius: 1,
+                          blurRadius: 12,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.redeem,
+                          color: misoPrimaryColor,
+                        ),
+                        Text(
+                          '   친구 추천하기',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: misoPrimaryColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -323,8 +406,90 @@ class MisoFourthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Miso 네 번째 페이지"),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 62,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * (0.1),
+              ),
+              Text(
+                "나의 정보",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * (0.05),
+              ),
+              Text(
+                "010-9999-9999",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * (0.1),
+              ),
+              ListTile(
+                onTap: () => print("주소 관리 클릭 됨"),
+                contentPadding: EdgeInsets.all(0),
+                //leading: Icon(Icons.home_outlined, color: Colors.black),
+                title: Text(
+                  "주소 관리",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () => print("결제 수단 관리 클릭 됨"),
+                contentPadding: EdgeInsets.all(0),
+                leading: Icon(Icons.credit_card_outlined, color: Colors.black),
+                title: Text(
+                  "결제 수단 관리",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () => print("공지사항 클릭 됨"),
+                contentPadding: EdgeInsets.all(0),
+                leading: Icon(Icons.volume_mute_outlined, color: Colors.black),
+                title: Text(
+                  "공지사항",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () => print("문의사항 클릭 됨"),
+                contentPadding: EdgeInsets.all(0),
+                leading: Icon(Icons.help_outline, color: Colors.black),
+                title: Text(
+                  "문의사항",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
